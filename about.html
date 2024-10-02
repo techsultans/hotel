@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About My Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline styles for header and footer */
+        header, footer {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        header a, footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+       
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #30475e;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow wrapping of images */
+            gap: 15px; /* Space between images */
+        }
+
+        .gallery img {
+            width: 100%; /* Full width in responsive design */
+            max-width: 300px; /* Limit maximum width */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                flex-direction: column; /* Stack images vertically on mobile */
+                align-items: center; /* Center align */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <nav class="navbar">
+            <div class="navbar-brand">My Hotel</div>
+    
+            <!-- Toggler/collapsible Button -->
+            <div class="navbar-toggler" id="menu-toggle" onclick="toggleMenu()">
+                &#9776; <!-- This is a simple hamburger icon -->
+            </div>
+    
+            <!-- Navbar links -->
+            <ul class="navbar-nav" id="navbar">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    
+    
+    
+    <!-- Inline JS for menu toggle functionality -->
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('show'); // Toggle the 'show' class
+        }
+    
+        // Optional: Close the menu if clicked outside
+        window.onclick = function(event) {
+            const navbar = document.getElementById('navbar');
+            const menuToggle = document.getElementById('menu-toggle');
+            if (!menuToggle.contains(event.target) && !navbar.contains(event.target)) {
+                navbar.classList.remove('show'); // Remove the 'show' class
+            }
+        };
+    </script>
+        
+    </header>
+
+
+
+    <section class="tabs-section">
+        <div class="tabs">
+          <button class="tab-link active" onclick="openTab(event, 'overview')">Overview</button>
+          <button class="tab-link" onclick="openTab(event, 'offers')">Offers</button>
+          <button class="tab-link" onclick="openTab(event, 'room-suites')">Rooms & Suites</button>
+          <button class="tab-link" onclick="openTab(event, 'gallery')">Gallery</button>
+          <button class="tab-link" onclick="openTab(event, 'venues')">Venues</button>
+        </div>
+      
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+          <h2>Welcome to Taj Palace, New Delhi</h2>
+          <img src="assets/overview-image.jpg" alt="Hotel Exterior" class="responsive-img">
+          <p>At the heart of India's capital, Taj Palace offers you the ultimate luxury experience with modern amenities and top-tier service. Whether you’re here for business or pleasure, our hotel provides an extraordinary blend of elegance and comfort.</p>
+          <p>Our spacious rooms, world-class dining, and serene surroundings make Taj Palace a preferred choice for travelers across the globe. Enjoy fine dining at our in-house restaurants, or rejuvenate yourself at our full-service spa. We ensure that every guest experiences the best of what New Delhi has to offer.</p>
+        </div>
+      
+        <!-- Offers Tab -->
+        <div id="offers" class="tab-content">
+          <h2>Special Offers</h2>
+          <img src="assets/offers-image.jpg" alt="Special Offers" class="responsive-img">
+          <p>Discover exclusive offers at Taj Palace that make your stay even more memorable. Whether you're planning a quick getaway or a business trip, we have something special for everyone.</p>
+          <ul>
+            <li><strong>Summer Staycation:</strong> Save up to 25% on room bookings and enjoy complimentary breakfast during your stay.</li>
+            <li><strong>Luxury Weekend Retreat:</strong> Book a weekend stay and receive a complimentary spa treatment and dinner for two.</li>
+            <li><strong>Business Traveler Package:</strong> Corporate guests can take advantage of special rates, including free Wi-Fi and express check-in.</li>
+            <li><strong>Festive Season Special:</strong> Enjoy discounts on our premium suites, along with curated festive meals and live music.</li>
+          </ul>
+        </div>
+      
+        <!-- Rooms & Suites Tab -->
+        <div id="room-suites" class="tab-content">
+          <h2>Rooms & Suites</h2>
+          <img src="assets/rooms-image.jpg" alt="Luxury Rooms" class="responsive-img">
+          <p>Our hotel offers a variety of luxurious rooms and suites designed to provide maximum comfort and style. Whether you’re here for business or a special occasion, we have the perfect accommodation for you.</p>
+          <ul>
+            <li><strong>Standard Room:</strong> A cozy and comfortable space with modern decor and essential amenities, perfect for solo travelers or couples.</li>
+            <li><strong>Deluxe Room:</strong> Larger rooms with beautiful city views and additional features like a king-size bed, flat-screen TV, and minibar.</li>
+            <li><strong>Executive Suite:</strong> Spacious suites with a living area, work desk, and luxurious bath amenities for a more indulgent stay.</li>
+            <li><strong>Presidential Suite:</strong> The epitome of luxury, our Presidential Suite offers a private living space, dining area, and dedicated butler service.</li>
+          </ul>
+        </div>
+      
+        <!-- Gallery Tab -->
+        <div id="gallery" class="tab-content">
+          <h2>Hotel Gallery</h2>
+          <div class="gallery-grid">
+            <img src="assets/gallery-image1.jpg" alt="Hotel Lobby" class="gallery-img">
+            <img src="assets/gallery-image2.jpg" alt="Swimming Pool" class="gallery-img">
+            <img src="assets/gallery-image3.jpg" alt="Dining Area" class="gallery-img">
+            <img src="assets/gallery-image4.jpg" alt="Hotel Exterior at Night" class="gallery-img">
+          </div>
+        </div>
+      
+        <!-- Venues Tab -->
+        <div id="venues" class="tab-content">
+          <h2>Event Venues</h2>
+          <img src="assets/venues-image.jpg" alt="Grand Ballroom" class="responsive-img">
+          <p>Taj Palace offers a range of elegant venues for events, conferences, and weddings. From grand ballrooms to serene outdoor spaces, we provide the perfect setting for any occasion.</p>
+          <ul>
+            <li><strong>Grand Ballroom:</strong> A magnificent space that can host up to 500 guests, ideal for weddings, gala dinners, and large corporate events.</li>
+            <li><strong>Conference Rooms:</strong> State-of-the-art meeting rooms equipped with modern technology, perfect for business meetings and seminars.</li>
+            <li><strong>Outdoor Garden:</strong> A lush green garden space, ideal for outdoor weddings, cocktail parties, and other social gatherings.</li>
+            <li><strong>Private Dining Rooms:</strong> Intimate and elegant spaces for smaller gatherings or exclusive meetings.</li>
+          </ul>
+        </div>
+      </section>
+      
+      <style>
+      
+      </style>
+      
+      <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+      
+        // Hide all tab contents
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].classList.remove("active");
+        }
+      
+        // Remove "active" class from all tab links
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+      
+        // Show the current tab and add "active" class
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
+      
+      // Set default tab as active on load
+      document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector('.tab-link.active').click();
+      });
+      </script>
+      
+      
+
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Welcome to our hotel booking service! We offer a wide range of hotels to suit your needs and preferences. Our goal is to provide you with the best experience possible.</p>
+        <p>At My Hotel, we understand that each traveler has unique requirements, which is why we work tirelessly to ensure our guests find the perfect accommodation. Whether you’re looking for luxury hotels, budget-friendly options, or unique boutique stays, we have something for everyone.</p>
+        <p>With a user-friendly platform, extensive hotel listings, and competitive pricing, planning your next getaway has never been easier. Our team is dedicated to providing exceptional customer support to assist you every step of the way. Let us help you make unforgettable memories!</p>
+    
+        <h3 style="text-align: center;">Our Hotels</h3>
+        <div class="gallery">
+            <img src="assets/hotel1.jpg" alt="Hotel 1">
+            <img src="assets/hotel2.jpg" alt="Hotel 2">
+            <img src="assets/hotel3.jpg" alt="Hotel 3">
+        </div>
+    </div>
+
+<footer style="background-color: #111; color: #ccc; padding: 40px 20px; font-family: Arial, sans-serif;">
+    <!-- Logo and Main Sections -->
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+      
+      <!-- Left Section: Subscription, Contact Details -->
+      <div style="flex: 1; min-width: 250px;">
+        <!-- "My Hotel" as the logo -->
+        <h2 style="color: #fff; font-size: 24px; margin-bottom: 20px;">My Hotel</h2>
+        
+        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 15px;">SUBSCRIBE FOR LATEST UPDATES</h4>
+        <div style="display: flex; border-bottom: 1px solid #666; padding-bottom: 10px; margin-bottom: 20px;">
+          <input type="email" placeholder="Enter your email address" style="border: none; background-color: #111; color: #ccc; padding: 10px; flex: 1; font-size: 14px;">
+          <button style="background-color: #666; color: #111; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold;">SUBSCRIBE</button>
+        </div>
+  
+        <p style="margin-bottom: 8px; font-weight: bold;">FOR BOOKINGS CONTACT</p>
+        <p style="margin-bottom: 8px;">1-7476460-111-825</p>
+  
+        <p style="margin-bottom: 8px; font-weight: bold;">CUSTOMER SUPPORT</p>
+        <p style="margin-bottom: 8px;">contact@myhotel.com</p>
+        <p style="margin-bottom: 8px;">reservations@myhotel.com</p>
+        <p style="margin-bottom: 8px;">website.feedback@myhotel.com</p>
+      </div>
+  
+      <!-- Middle Section: Quick Links -->
+      <div style="flex: 1; min-width: 250px; margin-top: 20px;">
+        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 15px;">QUICK LINKS</h4>
+        <div style="display: flex; flex-wrap: wrap;">
+          <ul style="list-style: none; padding: 0; margin: 0; flex: 1; line-height: 2;">
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Hotels</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Dining</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Wellness</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Timeless Weddings</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Event Venues</a></li>
+          </ul>
+          <ul style="list-style: none; padding: 0; margin: 0; flex: 1; line-height: 2;">
+            <li><a href="#" style="color: #ccc; text-decoration: none;">About Us</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Holidays</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Offers</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Gifting</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Right Section: Social Media Links -->
+      <div style="flex: 1; min-width: 250px; margin-top: 20px;">
+        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 15px;">CONNECT WITH US</h4>
+        <div style="display: flex; gap: 15px;">
+          <!-- Using Font Awesome Icons for Social Links -->
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-twitter"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-instagram"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-youtube"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Copyright Section -->
+    <div style="margin-top: 30px; text-align: center; border-top: 1px solid #444; padding-top: 20px;">
+      <p style="margin: 0;">&copy; 2024 My Hotel. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Inline CSS for responsiveness and visuals -->
+  <style>
+    @media (max-width: 768px) {
+      footer div {
+        text-align: center;
+      }
+      footer ul {
+        margin: 0 auto;
+      }
+    }
+  
+    /* Add hover effect for social icons */
+    footer a:hover {
+      color: #ff5722;
+    }
+  </style>
+  
+  <!-- Font Awesome CDN for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+
+
+</body>
+</html>

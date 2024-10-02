@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hotel - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline styles for header and footer */
+        header, footer {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        header a, footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .hero {
+            background-image: url('assets/hotel1.jpg');
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hotel-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .card {
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+        }
+        .card h3 {
+            margin: 0;
+            padding: 10px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+
+    <nav class="navbar">
+        <div class="navbar-brand">My Hotel</div>
+
+        <!-- Toggler/collapsible Button -->
+        <div class="navbar-toggler" id="menu-toggle" onclick="toggleMenu()">
+            &#9776; <!-- This is a simple hamburger icon -->
+        </div>
+
+        <!-- Navbar links -->
+        <ul class="navbar-nav" id="navbar">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+
+<style>
+ 
+</style>
+<!-- Inline JS for menu toggle functionality -->
+<script>
+    function toggleMenu() {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('show'); // Toggle the 'show' class
+    }
+
+    // Optional: Close the menu if clicked outside
+    window.onclick = function(event) {
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menu-toggle');
+        if (!menuToggle.contains(event.target) && !navbar.contains(event.target)) {
+            navbar.classList.remove('show'); // Remove the 'show' class
+        }
+    };
+</script>
+    
+</header>
+
+
+<section class="slider-section">
+    <div class="slider-container">
+        <div class="slides">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="assets/hotel-slide1.jpg" alt="Hotel 1">
+                <div class="slide-content">
+                    <h2>Luxury Stays, Unmatched Comfort</h2>
+                    <a href="#" class="btn-book">Book Now</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="assets/hotel-slide2.jpg" alt="Hotel 2">
+                <div class="slide-content">
+                    <h2>Experience the Best Hotels</h2>
+                    <a href="#" class="btn-book">Book Now</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="assets/hotel-slide3.jpg" alt="Hotel 3">
+                <div class="slide-content">
+                    <h2>Your Dream Vacation Awaits</h2>
+                    <a href="#" class="btn-book">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation Arrows -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+</section>
+
+
+<section class="booking-section">
+    <div class="booking-container">
+        <!-- Hotel Name -->
+        <div class="booking-item">
+            <label for="hotel">Taj Palace, New Delhi</label>
+        </div>
+
+        <!-- Date Picker for Stay Duration -->
+        <div class="booking-item">
+            <input type="date" id="checkin" name="checkin" value="2024-09-30" class="date-picker">
+            —
+            <input type="date" id="checkout" name="checkout" value="2024-10-01" class="date-picker">
+        </div>
+
+        <!-- Number of Guests and Rooms -->
+        <div class="booking-item guests-rooms">
+            <div>
+                <label>Guests: </label>
+                <button class="decrement" onclick="changeValue('guests', -1)">-</button>
+                <input type="text" id="guests" value="1" class="number-input" readonly>
+                <button class="increment" onclick="changeValue('guests', 1)">+</button>
+            </div>
+            <div>
+                <label>Rooms: </label>
+                <button class="decrement" onclick="changeValue('rooms', -1)">-</button>
+                <input type="text" id="rooms" value="1" class="number-input" readonly>
+                <button class="increment" onclick="changeValue('rooms', 1)">+</button>
+            </div>
+        </div>
+
+        <!-- Room Type Dropdown -->
+        <div class="booking-item">
+            <select id="room-type" class="room-type">
+                <option value="standard">Standard Room</option>
+                <option value="deluxe">Deluxe Room</option>
+                <option value="suite">Suite Room</option>
+            </select>
+        </div>
+
+        <!-- Book Now Button -->
+        <div class="booking-item">
+            <button class="book-now">BOOK NOW</button>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="tabs-section">
+    <div class="tabs">
+      <button class="tab-link active" onclick="openTab(event, 'overview')">Overview</button>
+      <button class="tab-link" onclick="openTab(event, 'offers')">Offers</button>
+      <button class="tab-link" onclick="openTab(event, 'room-suites')">Rooms & Suites</button>
+      <button class="tab-link" onclick="openTab(event, 'gallery')">Gallery</button>
+      <button class="tab-link" onclick="openTab(event, 'venues')">Venues</button>
+    </div>
+  
+    <!-- Overview Tab -->
+    <div id="overview" class="tab-content active">
+      <h2>Welcome to Taj Palace, New Delhi</h2>
+      <img src="assets/overview-image.jpg" alt="Hotel Exterior" class="responsive-img">
+      <p>At the heart of India's capital, Taj Palace offers you the ultimate luxury experience with modern amenities and top-tier service. Whether you’re here for business or pleasure, our hotel provides an extraordinary blend of elegance and comfort.</p>
+      <p>Our spacious rooms, world-class dining, and serene surroundings make Taj Palace a preferred choice for travelers across the globe. Enjoy fine dining at our in-house restaurants, or rejuvenate yourself at our full-service spa. We ensure that every guest experiences the best of what New Delhi has to offer.</p>
+    </div>
+  
+    <!-- Offers Tab -->
+    <div id="offers" class="tab-content">
+      <h2>Special Offers</h2>
+      <img src="assets/offers-image.jpg" alt="Special Offers" class="responsive-img">
+      <p>Discover exclusive offers at Taj Palace that make your stay even more memorable. Whether you're planning a quick getaway or a business trip, we have something special for everyone.</p>
+      <ul>
+        <li><strong>Summer Staycation:</strong> Save up to 25% on room bookings and enjoy complimentary breakfast during your stay.</li>
+        <li><strong>Luxury Weekend Retreat:</strong> Book a weekend stay and receive a complimentary spa treatment and dinner for two.</li>
+        <li><strong>Business Traveler Package:</strong> Corporate guests can take advantage of special rates, including free Wi-Fi and express check-in.</li>
+        <li><strong>Festive Season Special:</strong> Enjoy discounts on our premium suites, along with curated festive meals and live music.</li>
+      </ul>
+    </div>
+  
+    <!-- Rooms & Suites Tab -->
+    <div id="room-suites" class="tab-content">
+      <h2>Rooms & Suites</h2>
+      <img src="assets/rooms-image.jpg" alt="Luxury Rooms" class="responsive-img">
+      <p>Our hotel offers a variety of luxurious rooms and suites designed to provide maximum comfort and style. Whether you’re here for business or a special occasion, we have the perfect accommodation for you.</p>
+      <ul>
+        <li><strong>Standard Room:</strong> A cozy and comfortable space with modern decor and essential amenities, perfect for solo travelers or couples.</li>
+        <li><strong>Deluxe Room:</strong> Larger rooms with beautiful city views and additional features like a king-size bed, flat-screen TV, and minibar.</li>
+        <li><strong>Executive Suite:</strong> Spacious suites with a living area, work desk, and luxurious bath amenities for a more indulgent stay.</li>
+        <li><strong>Presidential Suite:</strong> The epitome of luxury, our Presidential Suite offers a private living space, dining area, and dedicated butler service.</li>
+      </ul>
+    </div>
+  
+    <!-- Gallery Tab -->
+    <div id="gallery" class="tab-content">
+      <h2>Hotel Gallery</h2>
+      <div class="gallery-grid">
+        <img src="assets/gallery-image1.jpg" alt="Hotel Lobby" class="gallery-img">
+        <img src="assets/gallery-image2.jpg" alt="Swimming Pool" class="gallery-img">
+        <img src="assets/gallery-image3.jpg" alt="Dining Area" class="gallery-img">
+        <img src="assets/gallery-image4.jpg" alt="Hotel Exterior at Night" class="gallery-img">
+      </div>
+    </div>
+  
+    <!-- Venues Tab -->
+    <div id="venues" class="tab-content">
+      <h2>Event Venues</h2>
+      <img src="assets/venues-image.jpg" alt="Grand Ballroom" class="responsive-img">
+      <p>Taj Palace offers a range of elegant venues for events, conferences, and weddings. From grand ballrooms to serene outdoor spaces, we provide the perfect setting for any occasion.</p>
+      <ul>
+        <li><strong>Grand Ballroom:</strong> A magnificent space that can host up to 500 guests, ideal for weddings, gala dinners, and large corporate events.</li>
+        <li><strong>Conference Rooms:</strong> State-of-the-art meeting rooms equipped with modern technology, perfect for business meetings and seminars.</li>
+        <li><strong>Outdoor Garden:</strong> A lush green garden space, ideal for outdoor weddings, cocktail parties, and other social gatherings.</li>
+        <li><strong>Private Dining Rooms:</strong> Intimate and elegant spaces for smaller gatherings or exclusive meetings.</li>
+      </ul>
+    </div>
+  </section>
+  
+  <script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+  
+    // Hide all tab contents
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].classList.remove("active");
+    }
+  
+    // Remove "active" class from all tab links
+    tablinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].classList.remove("active");
+    }
+  
+    // Show the current tab and add "active" class
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+  
+  // Set default tab as active on load
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.tab-link.active').click();
+  });
+  </script>
+  
+  
+
+
+
+
+<style>
+ /* Booking Section Styles */
+.booking-section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.booking-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.booking-item label {
+    font-weight: 500;
+    color: #333;
+}
+
+.date-picker {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 14px;
+    width: 150px;
+}
+
+.guests-rooms div {
+    margin-bottom: 5px;
+}
+
+.number-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.increment, .decrement {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.increment:hover, .decrement:hover {
+    background-color: #e0e0e0;
+}
+
+.room-type {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 14px;
+}
+
+.book-now {
+    background-color: #ff5722;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.book-now:hover {
+    background-color: #ff784e;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .booking-container {
+        flex-direction: column;
+    }
+    .booking-item {
+        text-align: left;
+        padding: 5px 0;
+    }
+    .book-now {
+        width: 100%;
+        padding: 12px 0;
+    }
+}
+
+
+    /* Slider Section Styles */
+    .slider-section {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 300%;
+    }
+
+    .slide {
+        min-width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+
+    .slide-content h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-book {
+        padding: 12px 24px;
+        background-color: #ff5722;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-book:hover {
+        background-color: #ff784e;
+    }
+
+    /* Navigation Buttons */
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        padding: 16px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        z-index: 10;
+        transition: background-color 0.3s ease;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .slide-content h2 {
+            font-size: 24px;
+        }
+
+        .btn-book {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .slide-content h2 {
+            font-size: 20px;
+        }
+
+        .btn-book {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+    }
+</style>
+
+<script>
+
+
+function changeValue(id, increment) {
+    const inputField = document.getElementById(id);
+    let currentValue = parseInt(inputField.value);
+
+    if (increment === 1 && currentValue < 10) {
+        inputField.value = currentValue + 1; // Maximum limit of 10
+    } else if (increment === -1 && currentValue > 1) {
+        inputField.value = currentValue - 1; // Minimum limit of 1
+    }
+}
+
+
+   let slideIndex = 1; // Start from the first real slide
+const slides = document.querySelector('.slides');
+const slide = document.querySelectorAll('.slide');
+const totalSlides = slide.length;
+
+const slideWidth = 100; // Assuming each slide takes 100% width
+
+// Clone the first and last slides
+const firstSlide = slide[0].cloneNode(true);
+const lastSlide = slide[totalSlides - 1].cloneNode(true);
+
+// Append cloned slides to the slider
+slides.appendChild(firstSlide); // Add the cloned first slide to the end
+slides.insertBefore(lastSlide, slide[0]); // Add the cloned last slide to the beginning
+
+// Adjust the initial position of the slider to show the first slide correctly
+slides.style.transform = `translateX(-${slideWidth}%)`;
+
+function nextSlide() {
+    if (slideIndex >= totalSlides + 1) {
+        slideIndex = 1;
+        slides.style.transition = "none"; // Disable transition when resetting position
+        slides.style.transform = `translateX(-${slideWidth}%)`;
+    } else {
+        slideIndex++;
+        slides.style.transition = "transform 1.8s ease"; // Enable transition
+        slides.style.transform = `translateX(-${slideIndex * slideWidth}%)`;
+    }
+}
+
+function prevSlide() {
+    if (slideIndex <= 0) {
+        slideIndex = totalSlides;
+        slides.style.transition = "none"; // Disable transition when resetting position
+        slides.style.transform = `translateX(-${totalSlides * slideWidth}%)`;
+    } else {
+        slideIndex--;
+        slides.style.transition = "transform 1.8s ease"; // Enable transition
+        slides.style.transform = `translateX(-${slideIndex * slideWidth}%)`;
+    }
+}
+
+// Auto slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Navigation functions for manual control
+function plusSlides(n) {
+    if (n > 0) {
+        nextSlide();
+    } else {
+        prevSlide();
+    }
+}
+</script>
+
+
+
+
+<div class="container">
+
+
+
+    
+
+    <section class="about-us-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <p>We are dedicated to offering you the best hotel booking experience. Our platform features a curated selection of top hotels around the world. Whether you're traveling for business or leisure, we ensure your stay is comfortable, affordable, and memorable.</p>
+                    <p>With 24/7 customer service, exclusive deals, and seamless booking, we make your travel planning easy and stress-free.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/hotel1.jpg" alt="Hotel Image">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Styles for About Us Section */
+        .about-us-section {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+    
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .about-text p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Responsive Layout for larger screens */
+        @media(min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+            }
+    
+            .about-text {
+                flex: 1;
+                padding-right: 20px;
+            }
+    
+            .about-image {
+                flex: 1;
+            }
+    
+            .about-text h2 {
+                font-size: 36px;
+            }
+    
+            .about-text p {
+                font-size: 20px;
+            }
+        }
+    </style>
+    
+    
+
+
+
+
+
+
+
+    <h2>Available Hotels</h2>
+    <div class="hotel-cards">
+        <div class="card">
+            <img src="assets/hotel2.jpg" alt="Hotel 1">
+            <h3>Hotel Sunshine</h3>
+        </div>
+        <div class="card">
+            <img src="assets/hotel3.jpg" alt="Hotel 2">
+            <h3>Hotel Moonlight</h3>
+        </div>
+        <div class="card">
+            <img src="assets/hotel1.jpg" alt="Hotel 3">
+            <h3>Hotel Starlight</h3>
+        </div>
+    </div>
+</div>
+
+
+<footer style="background-color: #111; color: #ccc; padding: 40px 20px; font-family: Arial, sans-serif;">
+    <!-- Logo and Main Sections -->
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+      
+      <!-- Left Section: Subscription, Contact Details -->
+      <div style="flex: 1; min-width: 250px;">
+        <!-- "My Hotel" as the logo -->
+        <h2 style="color: #fff; font-size: 24px; margin-bottom: 20px;">My Hotel</h2>
+        
+        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 15px;">SUBSCRIBE FOR LATEST UPDATES</h4>
+        <div style="display: flex; border-bottom: 1px solid #666; padding-bottom: 10px; margin-bottom: 20px;">
+          <input type="email" placeholder="Enter your email address" style="border: none; background-color: #111; color: #ccc; padding: 10px; flex: 1; font-size: 14px;">
+          <button style="background-color: #666; color: #111; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold;">SUBSCRIBE</button>
+        </div>
+  
+        <p style="margin-bottom: 8px; font-weight: bold;">FOR BOOKINGS CONTACT</p>
+        <p style="margin-bottom: 8px;">1-7476460-111-825</p>
+  
+        <p style="margin-bottom: 8px; font-weight: bold;">CUSTOMER SUPPORT</p>
+        <p style="margin-bottom: 8px;">contact@myhotel.com</p>
+        <p style="margin-bottom: 8px;">reservations@myhotel.com</p>
+        <p style="margin-bottom: 8px;">website.feedback@myhotel.com</p>
+      </div>
+  
+      <!-- Middle Section: Quick Links -->
+      <div style="flex: 1; min-width: 250px; margin-top: 20px;">
+        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 15px;">QUICK LINKS</h4>
+        <div style="display: flex; flex-wrap: wrap;">
+          <ul style="list-style: none; padding: 0; margin: 0; flex: 1; line-height: 2;">
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Hotels</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Dining</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Wellness</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Timeless Weddings</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Event Venues</a></li>
+          </ul>
+          <ul style="list-style: none; padding: 0; margin: 0; flex: 1; line-height: 2;">
+            <li><a href="#" style="color: #ccc; text-decoration: none;">About Us</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Holidays</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Offers</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Gifting</a></li>
+            <li><a href="#" style="color: #ccc; text-decoration: none;">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Right Section: Social Media Links -->
+      <div style="flex: 1; min-width: 250px; margin-top: 20px;">
+        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 15px;">CONNECT WITH US</h4>
+        <div style="display: flex; gap: 15px;">
+          <!-- Using Font Awesome Icons for Social Links -->
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-twitter"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-instagram"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-youtube"></i></a>
+          <a href="#" style="color: #ccc; font-size: 24px;"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Copyright Section -->
+    <div style="margin-top: 30px; text-align: center; border-top: 1px solid #444; padding-top: 20px;">
+      <p style="margin: 0;">&copy; 2024 My Hotel. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Inline CSS for responsiveness and visuals -->
+  <style>
+    @media (max-width: 768px) {
+      footer div {
+        text-align: center;
+      }
+      footer ul {
+        margin: 0 auto;
+      }
+    }
+  
+    /* Add hover effect for social icons */
+    footer a:hover {
+      color: #ff5722;
+    }
+  </style>
+  
+  <!-- Font Awesome CDN for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+
+</body>
+</html>

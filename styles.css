@@ -1,0 +1,183 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+
+/*nav bar style */
+
+.navbar {
+    background-color: #333333;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between branding and menu */
+    align-items: center; /* Center items vertically */
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin-left: auto; /* Aligns nav links to the right */
+}
+
+.navbar-nav .nav-item {
+    margin: 0 15px; /* Space between nav items */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    position: relative;
+    transition: 0.3s;
+    font-weight: 400;
+    text-decoration: none; /* Remove underline */
+}
+
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px; /* Position below the link */
+    left: 0;
+    background-color: #f8b739; /* Underline color */
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover::before {
+    width: 100%; /* Full underline on hover */
+}
+
+.navbar-toggler {
+    display: none; /* Hidden by default for larger screens */
+    cursor: pointer;
+    color: #ffffff; /* Color of the toggle icon */
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none; /* Hide links on mobile */
+        flex-direction: column; /* Stack vertically */
+        position: absolute;
+        background-color: #333333;
+        width: 100%;
+        top: 30px; /* Adjust based on the navbar height */
+        left: 0;
+        z-index: 1;
+    }
+
+    li.nav-item {
+padding: 10px;
+text-align: center;
+}
+
+    .navbar-nav.show {
+        display: flex; /* Show links when toggled */
+    }
+
+    .navbar-toggler {
+        display: block; /* Show the toggle button on mobile */
+    }
+}
+
+
+/* Tabs Container */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f8f8;
+    padding: 15px 0;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .tab-link {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .tab-link:hover {
+    background-color: #eee;
+  }
+  
+  .tab-link.active {
+    border-bottom: 3px solid #ff5722;
+    color: #ff5722;
+  }
+  
+  /* Tab Content */
+  .tab-content {
+    display: none;
+    padding: 25px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  /* Responsive Images */
+  .responsive-img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  /* Gallery Grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .gallery-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 250px;
+  }
+  
+  /* Styling tab-content h2 */
+  .tab-content h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ff5722;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .tabs {
+      flex-direction: column;
+    }
+  
+    .tab-link {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
